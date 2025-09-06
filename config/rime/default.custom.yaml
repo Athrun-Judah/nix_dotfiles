@@ -1,0 +1,6 @@
+patch:
+  # 输入方案列表，我们只保留雾凇拼音
+  schema_list:
+    - schema: rime_ice
+  # 设置菜单候选词数量为 7
+  "menu/page_size": 7

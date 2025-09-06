@@ -1,0 +1,7 @@
+[toolchain]
+# 您可以在这里指定 "stable", "beta", "nightly", 或具体的版本如 "1.79.0"
+channel = "stable"
+# 列出您需要的所有组件
+components = ["rustc", "cargo", "clippy", "rustfmt"]
+# 指定您需要的目标平台 (可选)
+# targets = [ "wasm32-unknown-unknown" ]

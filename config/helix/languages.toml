@@ -1,0 +1,195 @@
+# languages.toml
+
+# -- Language Specific Settings --
+
+# TOML 文件配置
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+auto-format = true
+
+[language-server.taplo]
+config = {}
+
+# Rust Analyzer 配置
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+# Rust 语言配置
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer", "tailwindcss-ls"]
+
+# TailwindCSS LSP 的特殊配置
+[language-server.tailwindcss-ls]
+config = { userLanguages = { rust = "html", "*.rs" = "html" } }
+
+# Ruff (Python Linter/Formatter) 配置
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.ruff.config.settings]
+lineLength = 80
+
+[language-server.ruff.config.settings.lint]
+select = ["E4", "E7"]
+preview = false
+
+[language-server.ruff.config.settings.format]
+preview = true
+
+# Python 语言配置
+[[language]]
+name = "python"
+language-servers = ["ruff", "pyright"]
+formatter = { command = "ruff", args = [
+  "format",
+  "--stdin-filename",
+  "%s",
+  "-",
+] }
+auto-format = true
+roots = [
+  "pyproject.toml",
+  "ruff.toml",
+  ".ruff.toml",
+  "setup.py",
+  ".git",
+  "poetry.lock",
+  "Pipfile",
+  ".venv",
+  "venv",
+]
+
+# SuperHTML LSP 配置
+[language-server.superhtml-lsp]
+command = "superhtml"
+args = ["lsp"]
+
+# Biome (JS/TS Formatter/Linter) 配置
+[language-server]
+biome = { command = "biome", args = ["lsp-proxy"] }
+
+# -- Merged Language Configurations --
+# 以下是合并后的语言配置，解决了重复定义的问题
+
+# HTML (合并后)
+[[language]]
+name = "html"
+scope = "source.html"
+roots = []
+file-types = ["html"]
+language-servers = [
+  "superhtml-lsp",
+  "vscode-html-language-server",
+  "tailwindcss-ls",
+]
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+
+# JavaScript
+[[language]]
+name = "javascript"
+language-servers = ["biome", "typescript-language-server"]
+auto-format = true
+
+# TypeScript
+[[language]]
+name = "typescript"
+language-servers = ["biome", "typescript-language-server"]
+auto-format = true
+
+# TSX (合并后)
+[[language]]
+name = "tsx"
+auto-format = true
+language-servers = ["biome", "typescript-language-server", "tailwindcss-ls"]
+
+# JSX (合并后)
+[[language]]
+name = "jsx"
+auto-format = true
+language-servers = ["biome", "typescript-language-server", "tailwindcss-ls"]
+
+# JSON
+[[language]]
+name = "json"
+language-servers = ["biome", "typescript-language-server"]
+
+# Perl
+[[language]]
+name = "perl"
+file-types = ["PL", "pl", "pm", "t", "pod", "canfile"]
+language-servers = ["perlnavigator"]
+
+[language-server.perlnavigator]
+command = "perlnavigator"
+args = ["--stdio"]
+
+# SQL
+[language-server.sql-language-server]
+command = "sql-language-server"
+args = ["up", "--method", "stdio"]
+
+[[language]]
+name = "sql"
+language-servers = ["sql-language-server"]
+formatter = { command = "sqlformat", args = [
+  "--reindent",
+  "--indent_width",
+  "2",
+  "--keywords",
+  "upper",
+  "--identifiers",
+  "lower",
+  "-",
+] }
+
+# CSS
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+
+# Svelte
+[[language]]
+name = "svelte"
+language-servers = ["svelteserver", "tailwindcss-ls"]
+
+# YAML
+[[language]]
+name = "yaml"
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+auto-format = true
+
+[language-server.yaml-language-server.config.yaml]
+format = { enable = true }
+validation = true
+
+[language-server.yaml-language-server.config.yaml.schemas]
+"https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.{yml,yaml}"
+"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json" = "roles/{tasks,handlers}/*.{yml,yaml}"
+
+# Fish
+[[language]]
+name = "fish"
+formatter = { command = "fish_indent" }
+auto-format = true
+
+# CPP
+[[language]]
+name = "cpp"
+formatter = { command = "clang-format" }
+auto-format = true
+
+# Haskell
+[[language]]
+name = "haskell"
+auto-format = true
+formatter = { command = "fourmolu", args = ["--stdin-input-file", "%s"] }
+
+# Nix
+[[language]]
+name = "nix"
+formatter = { command = "nixpkgs-fmt" }
+language-servers = ["nil"]

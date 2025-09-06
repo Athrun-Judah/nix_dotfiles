@@ -1,0 +1,116 @@
+# -- Theme --
+# 设置您喜欢的主题，例如 "tokyo_night_storm", "catppuccin_macchiato", "sonokai"
+theme = "tokyonight_storm"
+
+# -- Editor --
+# 编辑器核心设置
+[editor]
+# 使用相对行号，方便跳转
+line-number = "relative"
+# 启用鼠标支持
+mouse = true
+# 启用自动保存，防止文件丢失
+auto-save = true
+# 启用LSP（语言服务器协议）提供的代码诊断信息
+auto-format = true
+# 当切换到其他缓冲区时，自动格式化代码
+auto-info = true
+# 定义用于 :sh 命令的 shell. 它必须是一个字符串序列 (array).
+shell = ["fish"]
+cursorline = true
+gutters = ["line-numbers", "spacer", "diagnostics"]
+
+
+# 光标形状设置
+# normal: 正常模式, insert: 插入模式, select: 选择模式
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+# 文件选择器设置
+[editor.file-picker]
+# 显示隐藏文件 (例如 .gitignore)
+hidden = false
+
+# LSP (Language Server Protocol) 设置
+[editor.lsp]
+# 显示 inlay hints (例如类型提示)
+display-inlay-hints = true
+
+# 软换行设置 (当一行代码过长时自动换行)
+[editor.soft-wrap]
+enable = true
+# 换行符指示器
+wrap-indicator = "↪"
+
+# 缩进设置
+[editor.indent-guides]
+# 渲染缩进参考线
+render = true
+# 缩进参考线字符
+character = "│"
+
+# 空白字符渲染
+[editor.whitespace]
+render = "all" # "none", "all", "boundary"
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+tabpad = "·" # autofilled by tab
+
+# -- Statusline --
+# 底部状态栏配置
+[editor.statusline]
+# 左侧元素
+left = [
+  "mode",
+  "spinner",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+]
+# 中间元素
+center = ["diagnostics"]
+# 右侧元素
+right = [
+  "selections",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
+# 状态栏分隔符
+separator = "│"
+# 模式指示器
+[editor.statusline.mode]
+normal = "NORMAL"
+insert = "INSERT"
+select = "SELECT"
+
+# -- Keys --
+# 自定义快捷键
+[keys.normal]
+"esc" = ["keep_primary_selection", "collapse_selection"]
+
+# [keys.normal] 定义普通模式下的快捷键
+# 使用点语法定义层级快捷键，例如 'space' -> 'f'
+[keys.normal.space]
+# f = ":open"          # space-f 打开文件
+# s = ":w"             # space-s 保存
+# q = ":q"             # space-q 退出
+# a = ":wa"            # space-a 保存所有
+# t = ":toggle term"    # space-t 打开/关闭终端
+
+# 定义 'space' -> 'w' -> 'h/j/k/l' 用于窗口跳转
+[keys.normal.space.w]
+h = "jump_view_left"
+j = "jump_view_down"
+k = "jump_view_up"
+l = "jump_view_right"
+
+# [keys.insert] 定义插入模式下的快捷键
+# 使用点语法定义 'j' -> 'k' 的按键序列
+[keys.insert.j]
+k = "normal_mode" # 快速输入 'j' 然后 'k' 即可返回普通模式
