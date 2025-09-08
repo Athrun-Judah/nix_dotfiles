@@ -13,7 +13,6 @@
     xfce.thunar-archive-plugin # 压缩文件支持
     xfce.thunar-media-tags-plugin
     xfce.thunar-vcs-plugin
-    dunst
     git
     htop
     btop
