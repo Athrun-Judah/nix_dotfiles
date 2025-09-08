@@ -12,6 +12,7 @@
     waybar           # 状态栏
     wofi             # 应用启动器
     mako             # 通知守护进程
+    libnotify
     wl-clipboard     # Wayland 剪贴板工具
     grim             # 截图
     slurp            # 屏幕区域选择
