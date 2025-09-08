@@ -19,5 +19,5 @@
     (writeShellScriptBin "lock-screen" (builtins.readFile ../../config/scripts/lock.sh))
   ];
 
-  services.mako.enable = true;
+  services.mako.dbus-activation.enable = true;
 }
