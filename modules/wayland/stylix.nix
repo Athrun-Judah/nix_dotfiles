@@ -39,7 +39,6 @@
 
     targets = {
       gtk.enable = false;
-      dconf.enable = false;
     };
 
   };

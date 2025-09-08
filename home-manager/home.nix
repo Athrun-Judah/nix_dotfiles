@@ -5,7 +5,7 @@
     ../modules/common.nix
     ../modules/wayland/sway.nix
     ../modules/wayland/waybar.nix
-    ../modules/wayland/stylix.nix
+    # ../modules/wayland/stylix.nix
     ../modules/programs/fish/fish.nix
     ../modules/programs/ime/ime.nix
     ../modules/programs/helix/helix.nix
