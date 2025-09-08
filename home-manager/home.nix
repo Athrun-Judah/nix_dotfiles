@@ -5,7 +5,7 @@
     ../modules/common.nix
     ../modules/wayland/sway.nix
     ../modules/wayland/waybar.nix
-    # ../modules/wayland/stylix.nix
+    ../modules/wayland/stylix.nix
     ../modules/programs/fish/fish.nix
     ../modules/programs/ime/ime.nix
     ../modules/programs/helix/helix.nix
@@ -53,5 +53,5 @@
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
-  systemd.user.startServices = "sd-switch";
+  # systemd.user.startServices = "sd-switch";
 }
