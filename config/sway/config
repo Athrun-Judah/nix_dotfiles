@@ -132,8 +132,11 @@ exec mkdir -p /tmp/wob && mkfifo /tmp/wob/wob.fifo && tail -f /tmp/wob/wob.fifo 
 # -------------------------------------------------------------------
 # 自启动程序
 # -------------------------------------------------------------------
+# 强制 systemd 用户服务与 D-Bus 会话同步环境变量
+exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS WAYLAND_DISPLAY SWAYSOCK
+# 
 # 在启动时只执行一次
-exec swaybg -i ~/Pictures/wallpapers/Sakura.jpg -m fill # 设置你的壁纸路径
+exec swaybg -i ../../assets/Sakura.jpg -m fill # 设置你的壁纸路径
 exec waybar                                                    # 启动状态栏
 exec swayidle -w \
     timeout 300 'swaylock-effects' \
