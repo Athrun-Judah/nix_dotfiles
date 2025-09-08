@@ -10,7 +10,7 @@
       # --- 字体 ---
       # 我们在这里再次明确字体，确保它覆盖任何可能的默认值
       # 这会使用我们在 stylix 中定义的全局等宽字体
-      font_family      ${config.stylix.fonts.monospace.name}
+      # font_family      ${config.stylix.fonts.monospace.name}
       bold_font        auto
       italic_font      auto
       bold_italic_font auto
