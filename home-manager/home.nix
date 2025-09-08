@@ -7,7 +7,7 @@
     ../modules/wayland/waybar.nix
     ../modules/wayland/stylix.nix
     ../modules/programs/fish/fish.nix
-    # ../modules/programs/ime/ime.nix
+    ../modules/programs/ime/ime.nix
     ../modules/programs/helix/helix.nix
     ../modules/programs/mpv/mpv.nix
     ../modules/programs/yazi/yazi.nix
