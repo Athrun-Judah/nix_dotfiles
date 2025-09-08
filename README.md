@@ -30,7 +30,8 @@ sudo usermod -aG vboxusers player
 ## 第二步：部署声明式用户环境
 
 ### 1. 安装 Nix 包管理器
-sh <(curl -L https://nixos.org/nix/install) --daemon
+# sh <(curl -L https://nixos.org/nix/install) --daemon
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
 
 ### 2. 启用 Flakes 功能
 sudo mkdir -p /etc/nix
