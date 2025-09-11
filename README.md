@@ -19,13 +19,18 @@ sudo dnf install wireshark
 # 将 'player' 替换为你的用户名
 sudo usermod -aG wireshark player
 
-### 4. (可选) 安装 VirtualBox
+### 4. 安装SDDM
+sudo dnf install sddm
+sudo systemctl enable sddm.service -f
+
+### 5. (可选) 安装 VirtualBox
 sudo dnf install VirtualBox kernel-devel
 sudo /sbin/vboxconfig
 # 将 'player' 替换为你的用户名
 sudo usermod -aG vboxusers player
 
 # 完成以上步骤后，请务必注销并重新登录，以使用户组权限生效。
+reboot
 
 ## 第二步：部署声明式用户环境
 

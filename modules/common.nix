@@ -45,8 +45,8 @@
     zed-editor
     steam
     heroic
-    gnome-calculator
-    gnome-calendar
+    qalculate-gtk
+    morgen        # calendar
     gsimplecal
   ];
 

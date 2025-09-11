@@ -38,8 +38,7 @@
     };
 
     targets = {
-      gtk.enable = false;
+      gtk.enable = true;
     };
-
   };
 }
